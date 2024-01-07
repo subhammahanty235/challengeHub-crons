@@ -4,11 +4,13 @@ const express = require("express");
 app = express(); // Initializing app 
   
 // Creating a cron job which runs on every 10 second 
-// cron.schedule("*/60 * * * * *", function() { 
-//     console.log("running a task every 10 second"); 
-// }); 
-cron.schedule('10 3 * * *', () => {
+cron.schedule("*/60 * * * * *", function() { 
+    console.log(new Date().toLocaleTimeString())
+    console.log("running a task every 10 second"); 
+}); 
+cron.schedule('40 00 * * *', () => {
     // Your code to be executed goes here
+    console.log(new Date().toLocaleDateString());
     console.log('Cron job executed at around 12:30 AM');
   });
   
