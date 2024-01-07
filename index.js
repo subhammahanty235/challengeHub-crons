@@ -7,7 +7,7 @@ app = express(); // Initializing app
 // cron.schedule("*/60 * * * * *", function() { 
 //     console.log("running a task every 10 second"); 
 // }); 
-cron.schedule('0 35 00 ? * *', () => {
+cron.schedule('10 3 * * *', () => {
     // Your code to be executed goes here
     console.log('Cron job executed at around 12:30 AM');
   });
