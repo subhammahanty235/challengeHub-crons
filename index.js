@@ -5,7 +5,7 @@ const express = require("express");
 app = express(); // Initializing app 
   
 // Creating a cron job which runs on every 10 second 
-cron.schedule("* * * * *", function() { 
+cron.schedule("*/20 * * * *", function() { 
     console.log("running a task every hour"); 
 }); 
 cron.schedule('30 18 * * *', async() => {   //UTC time (IST: 00:00 am)
