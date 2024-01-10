@@ -1,6 +1,6 @@
 const cron = require("node-cron"); 
 const express = require("express"); 
-
+const axios = require("axios");
 
 app = express(); // Initializing app 
   
@@ -14,7 +14,7 @@ cron.schedule('30 18 * * *', async() => {   //UTC time (IST: 00:00 am)
     console.log('Cron job executed at around 00:00 AM');
   });
 
-cron.schedule('20 12 * * *' ,()=>{    
+cron.schedule('30 12 * * *' ,()=>{    
 
     console.log('cron job executed at 5:30 PM')
 })
