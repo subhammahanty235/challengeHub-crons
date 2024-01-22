@@ -18,7 +18,7 @@ const client = nodemailer.createTransport({
 
 
 // Creating a cron job which runs on every 10 second 
-cron.schedule("*/5 * * * *", async function () {
+cron.schedule("*/30 * * * *", async function () {
 
     // const data = await axios.get('http://localhost:5000/api/admin/inactive');
     client.sendMail(
@@ -28,7 +28,7 @@ cron.schedule("*/5 * * * *", async function () {
             subject: `Testing minute mail`,
             html: `
             <div style="border: 1px solid #999; padding: 20px; border-radius: 8px; background: linear-gradient(to right, #4a4a4a, #242424); text-align: center; color: #fff; font-family: 'Arial', sans-serif;">
-            Running every minute
+            Running every 30 minute
              </div>
             `
 
@@ -66,8 +66,26 @@ cron.schedule('30 18 * * *', async () => {   //UTC time (IST: 00:00 am)
     console.log('Cron job executed at around 00:00 AM');
 });
 
-cron.schedule('30 12 * * *', () => {      //for users who have taken a challenge but not participating
+cron.schedule('00 12 * * *', () => {      //for users who have taken a challenge but not participating
+    client.sendMail(
+        {
+            from: "chbspprt@gmail.com",
+            to: ["subhammahanty235@gmail.com"],
+            subject: `Testing day mail`,
+            html: `
+            <div style="border: 1px solid #999; padding: 20px; border-radius: 8px; background: linear-gradient(to right, #4a4a4a, #242424); text-align: center; color: #fff; font-family: 'Arial', sans-serif;">
+            Running every day
+             </div>
+            `
 
+        }, (err, data) => {
+            if (err) {
+                console.log("Error" + err)
+            } else {
+                res.send("Email sent")
+            }
+        }
+    )
     console.log('cron job executed at 5:30 PM')
 })
 
