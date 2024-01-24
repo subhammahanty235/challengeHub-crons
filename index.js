@@ -18,7 +18,7 @@ const client = nodemailer.createTransport({
 
 
 // Creating a cron job which runs on every 10 second 
-cron.schedule("*/30 * * * *", async function () {
+cron.schedule("*/15 * * * *", async function () {
 
     // const data = await axios.get('http://localhost:5000/api/admin/inactive');
     client.sendMail(
@@ -42,6 +42,8 @@ cron.schedule("*/30 * * * *", async function () {
     )
     console.log("minute");
 });
+
+
 cron.schedule('30 18 * * *', async () => {   //UTC time (IST: 00:00 am)
     // Your code to be executed goes here
     client.sendMail(
